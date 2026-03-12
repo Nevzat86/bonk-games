@@ -229,6 +229,83 @@
       line-height: 1.5;
     }
 
+    /* Services section */
+    .services-section {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 900px;
+      padding: 0 20px;
+      margin-bottom: 60px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 28px 24px;
+      text-align: left;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+
+    .service-card:hover {
+      border-color: rgba(254,202,87,0.4);
+      transform: translateY(-2px);
+    }
+
+    .service-card .icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+    }
+
+    .service-card h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.6;
+    }
+
+    .service-card .price {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--yellow);
+      font-weight: 600;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 14px 36px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 50px;
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .cta-button:hover {
+      background: var(--light-red);
+      transform: translateY(-1px);
+    }
+
+    .cta-center {
+      text-align: center;
+    }
+
     /* Studio section */
     .studio-section {
       position: relative;
@@ -377,12 +454,53 @@
       </div>
     </div>
 
+    <!-- Services -->
+    <div class="services-section">
+      <p class="section-label">Tjenester</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="icon">&#x1F6D2;</div>
+          <h4>Shopify &amp; Nettbutikk</h4>
+          <p>Skreddersydde Shopify-temaer, apper og integrasjoner. Fra oppsett til lansering.</p>
+          <div class="price">Fra 10 000 kr</div>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">&#x1F310;</div>
+          <h4>WordPress &amp; Nettsider</h4>
+          <p>Nettsider, plugins og vedlikehold. Rask, sikker og optimalisert for s&oslash;k.</p>
+          <div class="price">Fra 5 000 kr</div>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">&#x1F4F1;</div>
+          <h4>Mobilapper</h4>
+          <p>React Native-apper for Android og iOS. Fra prototyp til Play Store og App Store.</p>
+          <div class="price">Fra 15 000 kr</div>
+        </div>
+
+        <div class="service-card">
+          <div class="icon">&#x1F5A5;&#xFE0F;</div>
+          <h4>Infrastruktur &amp; DevOps</h4>
+          <p>Docker, ESXi, Splunk, overvåking og serveroppsett. Skalerbart og trygt.</p>
+          <div class="price">800 kr/time</div>
+        </div>
+      </div>
+
+      <div class="cta-center">
+        <a href="mailto:bonkgamesdev@gmail.com?subject=Forespørsel om tjenester" class="cta-button">Ta kontakt</a>
+      </div>
+    </div>
+
     <!-- Studio -->
     <div class="studio-section">
-      <h2>Om Bonk Games</h2>
+      <h2>Om oss</h2>
       <p>
-        Vi er et lite indie-studio fra Oslo som lager morsomme, trygge mobilspill for barn og familier.
-        V&aring;rt m&aring;l er enkelt: lag spill som foreldre stoler p&aring; og barn elsker.
+        Bonk Games er et indie-studio under Adea IT AS i Oslo.
+        Vi lager mobilspill for barn og familier &mdash; og hjelper bedrifter med
+        nettsider, apper og infrastruktur.
+        Over 5 &aring;rs erfaring med WordPress, Shopify, React Native og DevOps.
       </p>
     </div>
 
