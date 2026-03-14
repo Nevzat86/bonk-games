@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Tell dyrene – LearningKidz</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(145deg, #FFF3E0, #ffe8cc);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 16px;
+    }
+
+    .progress {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 100px;
+      background: #f0d5b5;
+      transition: all 0.3s;
+    }
+
+    .dot.active {
+      width: 20px;
+      background: #FFA94D;
+    }
+
+    .dot.done {
+      background: #69DB7C;
+    }
+
+    .score-badge {
+      background: #FFE8CC;
+      color: #E67700;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 2px solid #FFA94D;
+    }
+
+    .instruction {
+      font-size: 20px;
+      font-weight: 800;
+      color: #E67700;
+      margin: 4px 0;
+    }
+
+    .animal-area {
+      position: relative;
+      width: calc(100% - 32px);
+      max-width: 320px;
+      height: 200px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 20px;
+      border: 2px dashed #f0c89a;
+      margin: 8px 0;
+      overflow: hidden;
+      animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .animal {
+      position: absolute;
+      font-size: 36px;
+      transition: transform 0.3s;
+      animation: animalBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes animalBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .options {
+      display: flex;
+      gap: 12px;
+      margin: 12px 0;
+      padding: 0 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 320px;
+    }
+
+    .option-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      border: 3px solid transparent;
+      background: #FFA94D;
+      font-size: 32px;
+      font-weight: 900;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s;
+      box-shadow: 0 4px 16px rgba(230, 119, 0, 0.2);
+      animation: slideUp 0.3s ease-out both;
+    }
+
+    .option-btn:nth-child(1) { animation-delay: 0.05s; }
+    .option-btn:nth-child(2) { animation-delay: 0.1s; }
+    .option-btn:nth-child(3) { animation-delay: 0.15s; }
+    .option-btn:nth-child(4) { animation-delay: 0.2s; }
+
+    @keyframes slideUp {
+      0% { transform: translateY(20px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .option-btn:active { transform: scale(0.93); }
+
+    .option-btn.correct {
+      border-color: #2B8A3E;
+      background: #51CF66;
+      animation: pulse 0.4s ease;
+    }
+
+    .option-btn.wrong {
+      animation: shake 0.4s ease;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    .feedback {
+      font-size: 20px;
+      font-weight: 800;
+      height: 28px;
+    }
+
+    .feedback.correct { color: #2B8A3E; }
+    .feedback.wrong { color: #E03131; }
+
+    .result {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+      gap: 12px;
+    }
+
+    .result.show { display: flex; }
+    .game.hide { display: none; }
+
+    .result-emoji { font-size: 64px; }
+    .result-title { font-size: 28px; font-weight: 900; color: #E67700; }
+    .result-score { font-size: 18px; color: #555; font-weight: 600; }
+    .result-stars { font-size: 36px; letter-spacing: 4px; }
+
+    .play-again {
+      margin-top: 12px;
+      padding: 14px 32px;
+      background: #FFA94D;
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .play-again:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+<div class="game" id="game">
+  <div class="top-bar">
+    <div class="progress" id="progress"></div>
+    <div class="score-badge" id="score">0</div>
+  </div>
+
+  <div class="instruction">Tell dyrene!</div>
+
+  <div class="animal-area" id="animalArea"></div>
+
+  <div class="feedback" id="feedback">&nbsp;</div>
+
+  <div class="options" id="options"></div>
+</div>
+
+<div class="result" id="result">
+  <div class="result-emoji">&#x1F389;</div>
+  <div class="result-title" id="resultTitle"></div>
+  <div class="result-score" id="resultScore"></div>
+  <div class="result-stars" id="resultStars"></div>
+  <button class="play-again" onclick="startGame()">Spill igjen</button>
+</div>
+
+<script>
+  const ANIMALS = [
+    '\u{1F436}', '\u{1F431}', '\u{1F42D}', '\u{1F439}', '\u{1F430}',
+    '\u{1F98A}', '\u{1F43B}', '\u{1F43C}', '\u{1F428}', '\u{1F42F}',
+    '\u{1F981}', '\u{1F438}', '\u{1F435}', '\u{1F414}', '\u{1F427}',
+    '\u{1F426}', '\u{1F986}', '\u{1F984}', '\u{1F41D}', '\u{1F422}'
+  ];
+
+  const TOTAL_ROUNDS = 10;
+  let round, score, correctCount, locked;
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function getMaxCount(r) {
+    if (r < 4) return 5;
+    if (r < 7) return 8;
+    return 10;
+  }
+
+  function startGame() {
+    round = 0;
+    score = 0;
+    correctCount = 0;
+    locked = false;
+    document.getElementById('game').classList.remove('hide');
+    document.getElementById('result').classList.remove('show');
+    renderRound();
+  }
+
+  function renderRound() {
+    locked = false;
+    const fb = document.getElementById('feedback');
+    fb.innerHTML = '&nbsp;';
+    fb.className = 'feedback';
+
+    // Progress
+    const prog = document.getElementById('progress');
+    prog.innerHTML = '';
+    for (let i = 0; i < TOTAL_ROUNDS; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'dot' + (i < round ? ' done' : '') + (i === round ? ' active' : '');
+      prog.appendChild(dot);
+    }
+
+    document.getElementById('score').textContent = score;
+
+    const maxCount = getMaxCount(round);
+    const count = Math.floor(Math.random() * maxCount) + 1;
+    const animal = ANIMALS[Math.floor(Math.random() * ANIMALS.length)];
+
+    // Place animals
+    const area = document.getElementById('animalArea');
+    area.innerHTML = '';
+    area.style.animation = 'none';
+    area.offsetHeight;
+    area.style.animation = 'popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('span');
+      el.className = 'animal';
+      el.textContent = animal;
+      // Golden angle distribution
+      const angle = i * 137.508 * (Math.PI / 180);
+      const radius = 0.35;
+      const top = 50 + Math.sin(angle) * radius * 80;
+      const left = 50 + Math.cos(angle) * radius * 80;
+      el.style.top = Math.max(5, Math.min(75, top)) + '%';
+      el.style.left = Math.max(5, Math.min(80, left)) + '%';
+      el.style.animationDelay = (i * 0.15) + 's';
+      area.appendChild(el);
+    }
+
+    // Generate options: correct + 3 wrong
+    const wrongSet = new Set();
+    while (wrongSet.size < 3) {
+      const w = Math.floor(Math.random() * 12) + 1;
+      if (w !== count) wrongSet.add(w);
+    }
+    const options = shuffle([count, ...wrongSet]);
+
+    const optContainer = document.getElementById('options');
+    optContainer.innerHTML = '';
+    options.forEach((num, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.textContent = num;
+      btn.style.animation = 'none';
+      btn.offsetHeight;
+      btn.style.animation = `slideUp 0.3s ease-out ${0.05 + i * 0.05}s both`;
+      btn.onclick = () => handleAnswer(btn, num, count);
+      optContainer.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(btn, chosen, target) {
+    if (locked) return;
+    const fb = document.getElementById('feedback');
+
+    if (chosen === target) {
+      locked = true;
+      btn.classList.add('correct');
+      fb.textContent = 'Riktig! \u2713';
+      fb.className = 'feedback correct';
+      score += 10;
+      correctCount++;
+      document.getElementById('score').textContent = score;
+
+      setTimeout(() => {
+        round++;
+        if (round >= TOTAL_ROUNDS) {
+          showResult();
+        } else {
+          renderRound();
+        }
+      }, 800);
+    } else {
+      btn.classList.add('wrong');
+      fb.textContent = 'Pr\u00f8v igjen!';
+      fb.className = 'feedback wrong';
+      setTimeout(() => btn.classList.remove('wrong'), 400);
+    }
+  }
+
+  function showResult() {
+    document.getElementById('game').classList.add('hide');
+    const res = document.getElementById('result');
+    res.classList.add('show');
+
+    const stars = Math.min(Math.ceil((correctCount / TOTAL_ROUNDS) * 3), 3);
+    const titles = ['Bra jobba!', 'Fantastisk!', 'Superstjerne!'];
+
+    document.getElementById('resultTitle').textContent = titles[Math.min(stars - 1, 2)];
+    document.getElementById('resultScore').textContent = correctCount + ' av ' + TOTAL_ROUNDS + ' riktige';
+    document.getElementById('resultStars').textContent =
+      '\u2B50'.repeat(stars) + '\u2606'.repeat(3 - stars);
+  }
+
+  startGame();
+</script>
+</body>
+</html>
