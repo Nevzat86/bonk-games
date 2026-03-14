@@ -25,8 +25,8 @@
       --border: rgba(255,255,255,0.06);
       --border-hover: rgba(255,255,255,0.12);
       --text: #e0e0e0;
-      --text-muted: #888;
-      --text-dim: #555;
+      --text-muted: #999;
+      --text-dim: #777;
       --radius-lg: 24px;
       --radius-md: 16px;
       --radius-sm: 12px;
@@ -42,6 +42,48 @@
       color: var(--text);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* ============ NAV ============ */
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 24px;
+      background: rgba(15,15,26,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      height: 28px;
+      filter: drop-shadow(0 1px 4px rgba(255,71,87,0.15));
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
     }
 
     /* ---- Utility ---- */
@@ -332,13 +374,14 @@
     }
 
     .try-frame-container {
-      max-width: 420px;
+      max-width: 480px;
+      width: 100%;
       margin: 0 auto;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 2px solid var(--border);
-      box-shadow: 0 8px 60px rgba(0,0,0,0.3);
-      height: 480px;
+      border: 2px solid rgba(255,255,255,0.15);
+      box-shadow: 0 8px 60px rgba(0,0,0,0.4);
+      height: 560px;
       background: #1a1a2e;
       position: relative;
     }
@@ -378,17 +421,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
-      padding: 16px 8px;
+      gap: 8px;
+      padding: 20px 12px;
       background: var(--bg-card);
-      border: 1px solid var(--border);
+      border: 2px solid var(--border);
       border-radius: var(--radius-sm);
       color: var(--text);
       text-decoration: none;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.3s, transform 0.3s, background 0.3s;
       cursor: pointer;
+      min-height: 44px;
     }
 
     .try-game-btn:hover {
@@ -396,8 +440,14 @@
       transform: translateY(-2px);
     }
 
+    .try-game-btn.active {
+      border-color: #48c78e;
+      background: rgba(72,199,142,0.1);
+      color: #48c78e;
+    }
+
     .try-game-btn .game-emoji {
-      font-size: 28px;
+      font-size: 32px;
     }
 
     .try-note {
@@ -732,6 +782,10 @@
     }
 
     @media (max-width: 640px) {
+      .hero {
+        min-height: 60vh;
+        padding: 60px 20px 40px;
+      }
       .game-card {
         flex-direction: column;
         text-align: center;
@@ -749,6 +803,9 @@
       .learning-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+      .learning-card:last-child {
+        grid-column: 1 / -1;
+      }
       .trust-stats {
         padding: 20px 16px;
       }
@@ -765,13 +822,19 @@
         flex-direction: column;
         align-items: center;
       }
-      .hero {
-        padding: 40px 20px 60px;
+      .try-frame-container {
+        height: 500px;
       }
+      .try-games-grid {
+        max-width: 100%;
+      }
+      .nav-links { gap: 16px; }
+      .nav-links a { font-size: 12px; }
       .game-section,
       .features-section,
       .services-section,
       .learning-section,
+      .try-section,
       .about-section {
         padding: 70px 0;
       }
@@ -779,6 +842,17 @@
   </style>
 </head>
 <body>
+
+  <!-- ======== NAV ======== -->
+  <nav class="site-nav">
+    <img src="branding/bonk-games-logo.svg" alt="Bonk Games" class="nav-logo">
+    <ul class="nav-links">
+      <li><a href="#spill">Spill</a></li>
+      <li><a href="#prov">Pr&oslash;v</a></li>
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#om">Om</a></li>
+    </ul>
+  </nav>
 
   <!-- ======== HERO ======== -->
   <section class="hero">
@@ -794,7 +868,7 @@
   </section>
 
   <!-- ======== GAME SHOWCASE ======== -->
-  <section class="game-section">
+  <section class="game-section" id="spill">
     <div class="container">
       <p class="section-label fade-in">V&aring;re spill</p>
       <h2 class="section-title fade-in">V&aring;rt f&oslash;rste spill er ute!</h2>
@@ -841,7 +915,7 @@
         <div class="stat-divider"></div>
         <div class="stat-item">
           <span class="stat-value">30</span>
-          <span class="stat-label">Totalt med premium</span>
+          <span class="stat-label">Med premium</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
@@ -894,7 +968,7 @@
   </section>
 
   <!-- ======== TRY IN BROWSER ======== -->
-  <section class="try-section">
+  <section class="try-section" id="prov">
     <div class="container">
       <p class="section-label fade-in">Pr&oslash;v gratis</p>
       <h2 class="section-title fade-in">Spill direkte i nettleseren</h2>
@@ -959,7 +1033,7 @@
   </section>
 
   <!-- ======== SERVICES ======== -->
-  <section class="services-section">
+  <section class="services-section" id="tjenester">
     <div class="container">
       <p class="section-label fade-in">Tjenester</p>
       <h2 class="section-title fade-in">Vi bygger ogs&aring; for deg</h2>
@@ -996,7 +1070,7 @@
   </section>
 
   <!-- ======== ABOUT ======== -->
-  <section class="about-section">
+  <section class="about-section" id="om">
     <div class="container">
       <p class="section-label fade-in">Om oss</p>
       <h2 class="section-title fade-in">Hvem er Bonk Games?</h2>
@@ -1036,13 +1110,29 @@
 
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
 
+    const PLACEHOLDER_HTML = document.getElementById('try-placeholder') ? document.getElementById('try-placeholder').parentElement.innerHTML : '';
+
     function loadGame(game) {
-      const container = document.getElementById('try-placeholder');
-      if (!container) return;
-      const wrapper = container.parentElement;
+      const wrapper = document.querySelector('.try-frame-container');
+      if (!wrapper) return;
       wrapper.innerHTML = '<iframe src="games/' + game + '.html" title="Pr\u00f8v spillet" allow="autoplay"></iframe>';
       wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Active state on buttons
+      document.querySelectorAll('.try-game-btn').forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
     }
+
+    function restorePlaceholder() {
+      const wrapper = document.querySelector('.try-frame-container');
+      if (!wrapper) return;
+      wrapper.innerHTML = PLACEHOLDER_HTML;
+      document.querySelectorAll('.try-game-btn').forEach(btn => btn.classList.remove('active'));
+    }
+
+    // Listen for close-game message from iframe
+    window.addEventListener('message', function(e) {
+      if (e.data === 'close-game') restorePlaceholder();
+    });
   </script>
 
 </body>
