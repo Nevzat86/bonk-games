@@ -131,47 +131,6 @@
     .nav-toggle.open span:nth-child(2) { opacity: 0; }
     .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    @media (max-width: 640px) {
-      .nav-toggle { display: flex; }
-
-      .nav-links {
-        position: fixed;
-        top: 53px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        background: rgba(15,15,26,0.97);
-        backdrop-filter: blur(16px);
-        -webkit-backdrop-filter: blur(16px);
-        padding: 0;
-        gap: 0;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease, padding 0.3s ease;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .nav-links.open {
-        max-height: 300px;
-        padding: 8px 0;
-      }
-
-      .nav-links li {
-        text-align: center;
-      }
-
-      .nav-links a {
-        display: block;
-        padding: 14px 24px;
-        font-size: 15px;
-      }
-
-      .nav-links a.active {
-        border-bottom: none;
-        color: var(--red);
-      }
-    }
-
     /* ---- Utility ---- */
     .container {
       width: 100%;
@@ -212,14 +171,14 @@
 
     /* ============ HERO ============ */
     .hero {
-      min-height: 100vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
-      padding: 60px 24px 80px;
+      padding: 80px 24px 80px;
     }
 
     .hero::before {
@@ -460,14 +419,14 @@
     }
 
     .try-frame-container {
-      max-width: 480px;
+      max-width: 520px;
       width: 100%;
       margin: 0 auto;
       border-radius: var(--radius-lg);
       overflow: hidden;
       border: 2px solid rgba(255,255,255,0.15);
       box-shadow: 0 8px 60px rgba(0,0,0,0.4);
-      height: 560px;
+      height: 580px;
       background: #1a1a2e;
       position: relative;
     }
@@ -622,7 +581,7 @@
 
     .learning-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
@@ -882,22 +841,89 @@
     }
 
     /* ============ RESPONSIVE ============ */
-    @media (max-width: 900px) {
-      .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+
+    /* --- Wide desktop (1440px+) --- */
+    @media (min-width: 1440px) {
+      .container {
+        max-width: 1200px;
       }
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .game-card {
+        max-width: 900px;
       }
       .learning-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(5, 1fr);
+      }
+      .try-frame-container {
+        max-width: 560px;
+        height: 620px;
       }
     }
 
-    @media (max-width: 640px) {
+    /* --- Desktop (1024–1439px): defaults above handle this well --- */
+
+    /* --- Tablet landscape / small desktop (max 1024px) --- */
+    @media (max-width: 1024px) {
+      .hero {
+        min-height: 70vh;
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .game-section,
+      .features-section,
+      .services-section,
+      .learning-section,
+      .try-section,
+      .about-section {
+        padding: 80px 0;
+      }
+    }
+
+    /* --- Tablet portrait (max 800px) --- */
+    @media (max-width: 800px) {
+      /* Show hamburger on tablets too */
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        position: fixed;
+        top: 53px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(15,15,26,0.97);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 0;
+        gap: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        max-height: 300px;
+        padding: 8px 0;
+      }
+
+      .nav-links li {
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 14px 24px;
+        font-size: 15px;
+      }
+
+      .nav-links a.active {
+        border-bottom: none;
+        color: var(--red);
+      }
+
       .hero {
         min-height: 60vh;
-        padding: 60px 20px 40px;
+        padding: 60px 24px 60px;
       }
       .game-card {
         flex-direction: column;
@@ -907,6 +933,47 @@
       }
       .game-info { text-align: center; }
       .game-badges { justify-content: center; }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .learning-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .try-frame-container {
+        max-width: 100%;
+        height: 520px;
+      }
+      .try-games-grid {
+        max-width: 100%;
+      }
+      .game-section,
+      .features-section,
+      .services-section,
+      .learning-section,
+      .try-section,
+      .about-section {
+        padding: 70px 0;
+      }
+    }
+
+    /* --- Phone (max 640px) --- */
+    @media (max-width: 640px) {
+      .hero {
+        min-height: auto;
+        padding: 80px 20px 40px;
+      }
+      .hero-logo {
+        max-width: 260px;
+      }
+      .hero-tagline {
+        letter-spacing: 5px;
+        margin-bottom: 32px;
+      }
+      .hero-scroll {
+        position: relative;
+        bottom: auto;
+        margin-top: 16px;
+      }
       .features-grid {
         grid-template-columns: 1fr;
       }
@@ -938,17 +1005,35 @@
       .try-frame-container {
         height: 500px;
       }
-      .try-games-grid {
-        max-width: 100%;
-      }
-      /* nav handled by hamburger styles above */
       .game-section,
       .features-section,
       .services-section,
       .learning-section,
       .try-section,
       .about-section {
-        padding: 70px 0;
+        padding: 60px 0;
+      }
+    }
+
+    /* --- Small phone (max 380px) --- */
+    @media (max-width: 380px) {
+      .container {
+        padding: 0 16px;
+      }
+      .hero {
+        padding: 70px 16px 32px;
+      }
+      .hero-logo {
+        max-width: 220px;
+      }
+      .game-card {
+        padding: 28px 20px;
+      }
+      .service-card {
+        padding: 28px 20px;
+      }
+      .try-frame-container {
+        height: 460px;
       }
     }
   </style>
