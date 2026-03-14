@@ -286,6 +286,127 @@
       box-shadow: 0 8px 28px rgba(72,199,142,0.35);
     }
 
+    /* ============ PRICING INFO ============ */
+    .pricing-info {
+      margin-top: 16px;
+      padding: 14px 20px;
+      background: rgba(254,202,87,0.06);
+      border: 1px solid rgba(254,202,87,0.15);
+      border-radius: var(--radius-sm);
+      text-align: left;
+    }
+
+    .pricing-info p {
+      font-size: 13px !important;
+      color: var(--text-muted) !important;
+      margin-bottom: 10px !important;
+    }
+
+    .price-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--yellow);
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+
+    /* ============ TRY IN BROWSER ============ */
+    .try-section {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .try-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(72,199,142,0.3), transparent);
+    }
+
+    .try-frame-container {
+      max-width: 420px;
+      margin: 0 auto;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: 0 8px 60px rgba(0,0,0,0.3);
+      height: 480px;
+      background: #1a1a2e;
+      position: relative;
+    }
+
+    .try-frame-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .try-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: var(--text-muted);
+      font-size: 14px;
+      gap: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .try-placeholder .icon {
+      font-size: 48px;
+    }
+
+    .try-games-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 400px;
+      margin: 24px auto 0;
+    }
+
+    .try-game-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 16px 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .try-game-btn:hover {
+      border-color: rgba(72,199,142,0.4);
+      transform: translateY(-2px);
+    }
+
+    .try-game-btn .game-emoji {
+      font-size: 28px;
+    }
+
+    .try-note {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
     /* ============ TRUST STATS ============ */
     .trust-stats {
       display: flex;
@@ -684,16 +805,17 @@
         </div>
         <div class="game-info">
           <h3>LearningKidz: Spill &amp; L&aelig;r</h3>
-          <div class="subtitle">30 l&aelig;ringsspill for barn 4&ndash;8 &aring;r</div>
+          <div class="subtitle">L&aelig;ringsspill for barn 4&ndash;8 &aring;r</div>
           <p>
             Bokstaver, tall, former, ord og hukommelse &mdash; alt gjennom lek.
-            5 fargerike verdener, 6 spr&aring;k, ingen reklame, ingen sporing.
+            6 gratis spill &middot; 30 totalt med premium &middot; 5 verdener &middot; 7 spr&aring;k.
+            Ingen reklame, ingen sporing.
           </p>
           <div class="game-badges">
             <span class="badge live">Ute n&aring;!</span>
             <span class="badge">Android</span>
             <span class="badge">4&ndash;8 &aring;r</span>
-            <span class="badge">6 spr&aring;k</span>
+            <span class="badge">7 spr&aring;k</span>
             <span class="badge">Ingen reklame</span>
             <span class="badge">COPPA-trygg</span>
           </div>
@@ -701,19 +823,25 @@
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.4l2.834 1.64a1 1 0 0 1 0 1.74l-2.834 1.178-2.535-2.535 2.535-2.022zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z"/></svg>
             Last ned p&aring; Google Play
           </a>
+          <div class="pricing-info">
+            <p>6 spill er helt gratis. L&aring;s opp alle 30 med premium:</p>
+            <span class="price-tag">36 kr/mnd</span>
+            <span class="price-tag">309 kr/&aring;r</span>
+            <span class="price-tag">619 kr &eacute;n gang</span>
+          </div>
         </div>
       </div>
 
       <!-- Trust stats -->
       <div class="trust-stats fade-in">
         <div class="stat-item">
-          <span class="stat-value">100%</span>
-          <span class="stat-label">Gratis</span>
+          <span class="stat-value">6</span>
+          <span class="stat-label">Gratis spill</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
           <span class="stat-value">30</span>
-          <span class="stat-label">L&aelig;ringsspill</span>
+          <span class="stat-label">Totalt med premium</span>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
@@ -754,7 +882,7 @@
         <div class="learning-card fade-in">
           <span class="learning-icon">&#x1F4AC;</span>
           <h4>Ord &amp; spr&aring;k</h4>
-          <p>Hverdagsord med uttale p&aring; 6 spr&aring;k. Perfekt for flerspr&aring;klige familier.</p>
+          <p>Hverdagsord med uttale p&aring; 7 spr&aring;k. Perfekt for flerspr&aring;klige familier.</p>
         </div>
         <div class="learning-card fade-in">
           <span class="learning-icon">&#x1F9E0;</span>
@@ -762,6 +890,40 @@
           <p>Memory-spill som trener fokus og konsentrasjon p&aring; en morsom m&aring;te.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ======== TRY IN BROWSER ======== -->
+  <section class="try-section">
+    <div class="container">
+      <p class="section-label fade-in">Pr&oslash;v gratis</p>
+      <h2 class="section-title fade-in">Spill direkte i nettleseren</h2>
+
+      <div class="try-frame-container fade-in">
+        <div class="try-placeholder" id="try-placeholder">
+          <span class="icon">&#x1F3AE;</span>
+          <p>Velg et spill nedenfor for &aring; pr&oslash;ve det rett i nettleseren!</p>
+        </div>
+      </div>
+
+      <div class="try-games-grid fade-in">
+        <button class="try-game-btn" onclick="loadGame('letter-hunt')">
+          <span class="game-emoji">&#x1F50D;</span>
+          Finn bokstaven
+        </button>
+        <button class="try-game-btn" onclick="loadGame('count-animals')">
+          <span class="game-emoji">&#x1F43E;</span>
+          Tell dyrene
+        </button>
+        <button class="try-game-btn" onclick="loadGame('memory-cards')">
+          <span class="game-emoji">&#x1F0CF;</span>
+          Memory
+        </button>
+      </div>
+
+      <p class="try-note fade-in">
+        Dette er forenkla nettversjoner. Last ned appen for full opplevelse med tale, lyd og alle 30 spill.
+      </p>
     </div>
   </section>
 
@@ -779,8 +941,8 @@
         </div>
         <div class="feature-card fade-in">
           <span class="icon">&#x1F30D;</span>
-          <h4>6 spr&aring;k + tale</h4>
-          <p>Norsk, engelsk, tysk, svensk, dansk og spansk &mdash; med innebygd tekst-til-tale.</p>
+          <h4>7 spr&aring;k + tale</h4>
+          <p>Norsk, engelsk, tysk, svensk, dansk, spansk og albansk &mdash; med innebygd tekst-til-tale.</p>
         </div>
         <div class="feature-card fade-in">
           <span class="icon">&#x2708;&#xFE0F;</span>
@@ -873,6 +1035,14 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+
+    function loadGame(game) {
+      const container = document.getElementById('try-placeholder');
+      if (!container) return;
+      const wrapper = container.parentElement;
+      wrapper.innerHTML = '<iframe src="games/' + game + '.html" title="Pr\u00f8v spillet" allow="autoplay"></iframe>';
+      wrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
   </script>
 
 </body>

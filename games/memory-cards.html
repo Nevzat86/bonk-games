@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Memory – LearningKidz</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(145deg, #FFF9DB, #fff0b3);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 12px 16px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 800;
+      color: #E67700;
+    }
+
+    .score-badge {
+      background: #FFE8CC;
+      color: #E67700;
+      font-weight: 800;
+      font-size: 14px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 2px solid #FFA94D;
+    }
+
+    .moves-counter {
+      font-size: 15px;
+      color: #888;
+      font-weight: 600;
+      margin: 4px 0 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 0 16px;
+      width: 100%;
+      max-width: 340px;
+    }
+
+    .card {
+      aspect-ratio: 1 / 1.2;
+      border-radius: 14px;
+      cursor: pointer;
+      position: relative;
+      perspective: 600px;
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .card-back {
+      background: linear-gradient(135deg, #FFD43B, #FCC419);
+      box-shadow: 0 4px 16px rgba(230, 119, 0, 0.15);
+      font-size: 28px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .card-front {
+      background: #fff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transform: rotateY(180deg);
+      font-size: 32px;
+    }
+
+    .card.matched .card-front {
+      background: #D3F9D8;
+      border: 2px solid #69DB7C;
+    }
+
+    .card.matched {
+      pointer-events: none;
+    }
+
+    @keyframes matchPulse {
+      0% { transform: rotateY(180deg) scale(1); }
+      50% { transform: rotateY(180deg) scale(1.1); }
+      100% { transform: rotateY(180deg) scale(1); }
+    }
+
+    .card.matched .card-inner {
+      animation: matchPulse 0.4s ease;
+    }
+
+    .result {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+      gap: 12px;
+    }
+
+    .result.show { display: flex; }
+    .game.hide { display: none; }
+
+    .result-emoji { font-size: 64px; }
+    .result-title { font-size: 28px; font-weight: 900; color: #E67700; }
+    .result-score { font-size: 18px; color: #555; font-weight: 600; }
+    .result-stars { font-size: 36px; letter-spacing: 4px; }
+
+    .play-again {
+      margin-top: 12px;
+      padding: 14px 32px;
+      background: #FCC419;
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .play-again:hover { transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+<div class="game" id="game">
+  <div class="top-bar">
+    <div class="title">Memory</div>
+    <div class="score-badge" id="pairsFound">0/6 &#x1F0CF;</div>
+  </div>
+
+  <div class="moves-counter">Trekk: <span id="moves">0</span></div>
+
+  <div class="grid" id="grid"></div>
+</div>
+
+<div class="result" id="result">
+  <div class="result-emoji">&#x1F38A;</div>
+  <div class="result-title" id="resultTitle"></div>
+  <div class="result-score" id="resultScore"></div>
+  <div class="result-stars" id="resultStars"></div>
+  <button class="play-again" onclick="startGame()">Spill igjen</button>
+</div>
+
+<script>
+  const EMOJI_POOL = [
+    '\u{1F436}', '\u{1F431}', '\u{1F42D}', '\u{1F430}', '\u{1F98A}',
+    '\u{1F43B}', '\u{1F981}', '\u{1F438}', '\u{1F435}', '\u{1F414}',
+    '\u{1F98B}', '\u{1F41D}', '\u{1F338}', '\u{1F34E}', '\u2B50',
+    '\u{1F388}', '\u{1F319}', '\u{1F697}', '\u{1F3E0}', '\u{1F3B8}'
+  ];
+
+  const PAIRS = 6;
+  let cards, flipped, matched, moves, locked;
+
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function startGame() {
+    const chosen = shuffle(EMOJI_POOL).slice(0, PAIRS);
+    const deck = shuffle([...chosen, ...chosen]);
+    cards = deck.map((emoji, i) => ({ id: i, emoji, isFlipped: false, isMatched: false }));
+    flipped = [];
+    matched = 0;
+    moves = 0;
+    locked = false;
+
+    document.getElementById('game').classList.remove('hide');
+    document.getElementById('result').classList.remove('show');
+    document.getElementById('moves').textContent = '0';
+    document.getElementById('pairsFound').innerHTML = '0/6 \u{1F0CF}';
+
+    renderGrid();
+  }
+
+  function renderGrid() {
+    const grid = document.getElementById('grid');
+    grid.innerHTML = '';
+
+    cards.forEach((card, i) => {
+      const el = document.createElement('div');
+      el.className = 'card';
+      el.dataset.index = i;
+      el.innerHTML = `
+        <div class="card-inner">
+          <div class="card-face card-back">?</div>
+          <div class="card-face card-front">${card.emoji}</div>
+        </div>
+      `;
+      el.onclick = () => flipCard(i);
+      grid.appendChild(el);
+    });
+  }
+
+  function flipCard(index) {
+    if (locked) return;
+    const card = cards[index];
+    if (card.isFlipped || card.isMatched) return;
+    if (flipped.length >= 2) return;
+
+    card.isFlipped = true;
+    flipped.push(index);
+    const el = document.querySelectorAll('.card')[index];
+    el.classList.add('flipped');
+
+    if (flipped.length === 2) {
+      moves++;
+      document.getElementById('moves').textContent = moves;
+      checkMatch();
+    }
+  }
+
+  function checkMatch() {
+    locked = true;
+    const [a, b] = flipped;
+    const cardA = cards[a];
+    const cardB = cards[b];
+
+    if (cardA.emoji === cardB.emoji) {
+      // Match!
+      cardA.isMatched = true;
+      cardB.isMatched = true;
+      matched++;
+      document.getElementById('pairsFound').innerHTML = matched + '/6 \u{1F0CF}';
+
+      setTimeout(() => {
+        document.querySelectorAll('.card')[a].classList.add('matched');
+        document.querySelectorAll('.card')[b].classList.add('matched');
+        flipped = [];
+        locked = false;
+
+        if (matched === PAIRS) {
+          setTimeout(showResult, 500);
+        }
+      }, 300);
+    } else {
+      // No match - flip back
+      setTimeout(() => {
+        cardA.isFlipped = false;
+        cardB.isFlipped = false;
+        document.querySelectorAll('.card')[a].classList.remove('flipped');
+        document.querySelectorAll('.card')[b].classList.remove('flipped');
+        flipped = [];
+        locked = false;
+      }, 900);
+    }
+  }
+
+  function showResult() {
+    document.getElementById('game').classList.add('hide');
+    const res = document.getElementById('result');
+    res.classList.add('show');
+
+    let stars;
+    if (moves < 9) stars = 3;
+    else if (moves < 15) stars = 2;
+    else stars = 1;
+
+    const titles = ['Bra jobba!', 'Fantastisk!', 'Superstjerne!'];
+
+    document.getElementById('resultTitle').textContent = titles[Math.min(stars - 1, 2)];
+    document.getElementById('resultScore').textContent = 'Fullf\u00f8rt p\u00e5 ' + moves + ' trekk';
+    document.getElementById('resultStars').textContent =
+      '\u2B50'.repeat(stars) + '\u2606'.repeat(3 - stars);
+  }
+
+  startGame();
+</script>
+</body>
+</html>
