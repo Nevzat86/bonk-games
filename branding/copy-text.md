@@ -13,29 +13,29 @@ Indie game studio from Norway. Fun-sized games, full-sized fun.
 **Long description (4000 tegn):**
 Lunelo is an indie game studio based in Oslo, Norway. We create fun, engaging, and accessible mobile games for players of all ages. Our mission is simple: Hit play. Have fun. Whether you're looking for a quick game during your commute or a challenge to master over time, Lunelo has something for you. Stay tuned for our upcoming releases!
 
-**Contact email:** bonkgamesdev@gmail.com
-**Website:** https://bonkgames.games (when ready)
+**Contact email:** hei@lunelo.no
+**Website:** https://lunelo.no (when ready)
 
 ---
 
 ## Instagram
 
-**Username:** @bonkgames
+**Username:** @lunelo.no
 **Name:** Lunelo
 **Bio (150 tegn):**
 Indie game studio from Norway. Fun-sized games, full-sized fun. Hit play. Have fun.
-**Link:** https://bonkgames.games
+**Link:** https://lunelo.no
 
 ---
 
 ## X / Twitter
 
-**Username:** @bonkgames
+**Username:** @lunelo_no
 **Display name:** Lunelo
 **Bio (160 tegn):**
 Indie game studio from Norway. Creating fun mobile games for everyone. Hit play. Have fun.
 **Location:** Oslo, Norway
-**Link:** https://bonkgames.games
+**Link:** https://lunelo.no
 
 ---
 
@@ -53,7 +53,7 @@ Hit play. Have fun.
 
 ## TikTok
 
-**Username:** @bonkgamesofficial (da @bonkgames er tatt)
+**Username:** @lunelo.no
 **Display name:** Lunelo
 **Bio (80 tegn):**
 Indie games from Norway. Hit play. Have fun.

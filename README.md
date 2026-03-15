@@ -5,16 +5,16 @@
 - **Legal Entity:** Adea IT AS (Org.nr: 922 689 148)
 - **Address:** Oslo, Norge
 - **Tagline:** Hit play. Have fun.
-- **Email:** bonkgamesdev@gmail.com
+- **Email:** hei@lunelo.no
 
 ## Accounts
-- [x] Gmail: bonkgamesdev@gmail.com
+- [x] Gmail: hei@lunelo.no
 - [x] Google Business Profile (Adea IT AS)
-- [x] Instagram: @bonkgames
-- [x] Domain: bonkgames.no (Domeneshop, 99 kr/yr)
+- [x] Instagram: @lunelo.no
+- [x] Domain: lunelo.no (Domeneshop)
 - [x] D-U-N-S: 346854801 (verifisert)
 - [x] Google Play Console: verifisert, developer ID 7081837294316555512
-- [ ] TikTok: @bonkgamesofficial (bonkgames tatt)
+- [ ] TikTok: @lunelo.no
 
 ## Current Status
 - **Lunelo v1.1.0** sendt til Google Play produksjonsgjennomgang (2026-03-14)

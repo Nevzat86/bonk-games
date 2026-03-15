@@ -1,8 +1,8 @@
 #!/bin/bash
-# LearningKidz Launch Day — bonkgames.no update script
+# LearningKidz Launch Day — lunelo.no update script
 # Usage: bash launch-day-update.sh "https://play.google.com/store/apps/details?id=com.adeait.learningkidz"
 #
-# This script updates bonkgames.no to switch from "Kommer snart" to "Ute nå!"
+# This script updates lunelo.no to switch from "Kommer snart" to "Ute nå!"
 # and inserts the actual Google Play store link.
 
 PLAY_URL="${1:?Bruk: bash launch-day-update.sh '<Google Play URL>'}"
