@@ -1,17 +1,17 @@
-# Bonk Games — Ferdig Tekstinnhold
+# Lunelo — Ferdig Tekstinnhold
 > Kopier og lim inn direkte ved kontooppretting
 
 ---
 
 ## Google Play Console — Utviklerprofil
 
-**Developer name:** Bonk Games
+**Developer name:** Lunelo
 
 **Short description (80 tegn):**
 Indie game studio from Norway. Fun-sized games, full-sized fun.
 
 **Long description (4000 tegn):**
-Bonk Games is an indie game studio based in Oslo, Norway. We create fun, engaging, and accessible mobile games for players of all ages. Our mission is simple: Hit play. Have fun. Whether you're looking for a quick game during your commute or a challenge to master over time, Bonk Games has something for you. Stay tuned for our upcoming releases!
+Lunelo is an indie game studio based in Oslo, Norway. We create fun, engaging, and accessible mobile games for players of all ages. Our mission is simple: Hit play. Have fun. Whether you're looking for a quick game during your commute or a challenge to master over time, Lunelo has something for you. Stay tuned for our upcoming releases!
 
 **Contact email:** bonkgamesdev@gmail.com
 **Website:** https://bonkgames.games (when ready)
@@ -21,7 +21,7 @@ Bonk Games is an indie game studio based in Oslo, Norway. We create fun, engagin
 ## Instagram
 
 **Username:** @bonkgames
-**Name:** Bonk Games
+**Name:** Lunelo
 **Bio (150 tegn):**
 Indie game studio from Norway. Fun-sized games, full-sized fun. Hit play. Have fun.
 **Link:** https://bonkgames.games
@@ -31,7 +31,7 @@ Indie game studio from Norway. Fun-sized games, full-sized fun. Hit play. Have f
 ## X / Twitter
 
 **Username:** @bonkgames
-**Display name:** Bonk Games
+**Display name:** Lunelo
 **Bio (160 tegn):**
 Indie game studio from Norway. Creating fun mobile games for everyone. Hit play. Have fun.
 **Location:** Oslo, Norway
@@ -41,20 +41,20 @@ Indie game studio from Norway. Creating fun mobile games for everyone. Hit play.
 
 ## YouTube (om du oppretter kanal)
 
-**Channel name:** Bonk Games
+**Channel name:** Lunelo
 **Description:**
-Bonk Games is an indie game studio based in Norway. Follow us for game trailers, devlogs, behind-the-scenes content, and updates on our latest mobile games.
+Lunelo is an indie game studio based in Norway. Follow us for game trailers, devlogs, behind-the-scenes content, and updates on our latest mobile games.
 
 Hit play. Have fun.
 
-**Tags:** indie games, mobile games, game development, norway, bonk games
+**Tags:** indie games, mobile games, game development, norway, lunelo
 
 ---
 
 ## TikTok
 
 **Username:** @bonkgamesofficial (da @bonkgames er tatt)
-**Display name:** Bonk Games
+**Display name:** Lunelo
 **Bio (80 tegn):**
 Indie games from Norway. Hit play. Have fun.
 
@@ -65,10 +65,10 @@ Indie games from Norway. Hit play. Have fun.
 **Business name:** Adea IT AS
 **Category:** Software company
 **Description:**
-Bonk Games is an indie game studio based in Oslo, Norway, creating fun and engaging mobile games for players of all ages.
+Lunelo is an indie game studio based in Oslo, Norway, creating fun and engaging mobile games for players of all ages.
 
 ---
 
 ## Standard Hashtags
 
-#bonkgames #indiegames #mobilegames #gamedev #indiedev #madeinNorway #hitplayhavefun
+#lunelo #indiegames #mobilegames #gamedev #indiedev #madeinNorway #hitplayhavefun

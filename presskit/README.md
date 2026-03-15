@@ -1,10 +1,10 @@
-# Bonk Games — Press Kit
+# Lunelo — Press Kit
 
 ## Studio
 
 | | |
 |---|---|
-| **Navn** | Bonk Games |
+| **Navn** | Lunelo |
 | **Juridisk** | Adea IT AS (Org.nr: 922 689 148) |
 | **Lokasjon** | Oslo, Norge |
 | **Grunnlagt** | 2026 |
@@ -13,13 +13,13 @@
 | **Instagram** | [@bonkgames](https://instagram.com/bonkgames) |
 
 ### Om oss
-Bonk Games er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill for barn og familier. Vi tror at barn fortjener spill uten reklame, uten sporing, og uten manipulativt design. Vart mal er a lage spill som foreldre stoler pa og barn elsker.
+Lunelo er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill for barn og familier. Vi tror at barn fortjener spill uten reklame, uten sporing, og uten manipulativt design. Vart mal er a lage spill som foreldre stoler pa og barn elsker.
 
 ---
 
 ## Spill
 
-### LearningKidz: Spill & Laer
+### Lunelo: Spill & Laer
 
 | | |
 |---|---|
@@ -89,8 +89,8 @@ Vi svarer vanligvis innen 24 timer.
 
 ## Fakta (for artikler)
 
-- Bonk Games er et enpersons indie-studio fra Oslo, Norge
-- LearningKidz er studioets forste utgivelse
+- Lunelo er et enpersons indie-studio fra Oslo, Norge
+- Lunelo: Spill & Laer er studioets forste utgivelse
 - Spillet er utviklet med React Native og kjorer pa Android (iOS kommer)
 - Alle 30 spill er testet med 71 automatiserte tester
 - Spillet er designet etter prinsippet "ingen straff" — feil svar gir oppmuntring, ikke negativ feedback

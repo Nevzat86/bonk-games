@@ -1,7 +1,7 @@
-# Bonk Games
+# Lunelo
 
 ## Studio Info
-- **Studio Name:** Bonk Games
+- **Studio Name:** Lunelo
 - **Legal Entity:** Adea IT AS (Org.nr: 922 689 148)
 - **Address:** Odvar Solbergs vei 76, 0970 Oslo
 - **Tagline:** Hit play. Have fun.
@@ -17,18 +17,18 @@
 - [ ] TikTok: @bonkgamesofficial (bonkgames tatt)
 
 ## Current Status
-- **LearningKidz v1.1.0** sendt til Google Play produksjonsgjennomgang (2026-03-14)
+- **Lunelo v1.1.0** sendt til Google Play produksjonsgjennomgang (2026-03-14)
 - 176 land, 3 IAP-produkter aktive (monthly, yearly, lifetime)
 - Venter Google-godkjenning — kjor `launch-day-update.sh` nar URL er klar
-- **Lunelo rebrand** planlagt (domener sikret: lunelo.no, lunelo.online, lunelo.eu)
+- **Lunelo rebrand** gjennomfort (domener sikret: lunelo.no, lunelo.online, lunelo.eu)
 
 ## Launch Day
 Se [LAUNCH_DAY.md](LAUNCH_DAY.md) for steg-for-steg sjekkliste.
 
 ## Brand
 - **Colors:**
-  - Bonk Red: #FF4757
-  - Bonk Yellow: #FECA57
+  - Lunelo Red: #FF4757
+  - Lunelo Yellow: #FECA57
   - Light Red: #FF6B81
   - Dark: #2D3436
   - White: #FFFFFF
@@ -41,4 +41,4 @@ Se [LAUNCH_DAY.md](LAUNCH_DAY.md) for steg-for-steg sjekkliste.
 - Dev server: `python -m http.server 3456`
 
 ## Full documentation
-See Obsidian: Projects/Bonk Games
+See Obsidian: Projects/Lunelo
