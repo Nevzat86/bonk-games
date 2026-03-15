@@ -36,7 +36,7 @@ git push
 GitHub Pages deployer automatisk innen 1-2 minutter.
 
 ## 5. Verifiser live
-- [ ] Apne https://bonkgames.no
+- [ ] Apne https://lunelo.no
 - [ ] Sjekk at "Ute na!"-badge vises
 - [ ] Klikk Google Play-knappen — verifiser at den apner riktig listing
 - [ ] Test pa mobil ogsa

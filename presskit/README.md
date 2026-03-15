@@ -8,9 +8,9 @@
 | **Juridisk** | Adea IT AS (Org.nr: 922 689 148) |
 | **Lokasjon** | Oslo, Norge |
 | **Grunnlagt** | 2026 |
-| **Nettside** | [bonkgames.no](https://bonkgames.no) |
-| **E-post** | bonkgamesdev@gmail.com |
-| **Instagram** | [@bonkgames](https://instagram.com/bonkgames) |
+| **Nettside** | [lunelo.no](https://lunelo.no) |
+| **E-post** | hei@lunelo.no |
+| **Instagram** | [@lunelo.no](https://instagram.com/lunelo.no) |
 
 ### Om oss
 Lunelo er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill for barn og familier. Vi tror at barn fortjener spill uten reklame, uten sporing, og uten manipulativt design. Vart mal er a lage spill som foreldre stoler pa og barn elsker.
@@ -80,7 +80,7 @@ presskit/
 
 For anmeldelseskoder, intervjuer eller presseforesporsler:
 
-**E-post:** bonkgamesdev@gmail.com
+**E-post:** hei@lunelo.no
 **Emne-prefix:** [PRESSE]
 
 Vi svarer vanligvis innen 24 timer.
