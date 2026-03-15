@@ -1,9 +1,9 @@
-# Launch Day Checklist — Lunelo (LearningKidz)
+# Launch Day Checklist — Lunelo
 
 Nar Google Play godkjenner appen, kjor disse stegene:
 
 ## 1. Hent Play Store URL
-- Apne Google Play Console → LearningKidz → Store listing
+- Apne Google Play Console → Lunelo → Store listing
 - URL-format: `https://play.google.com/store/apps/details?id=com.adeait.learningkidz`
 - [ ] Verifiser at appen er synlig i Play Store (privat nettleserfane)
 
@@ -49,11 +49,11 @@ GitHub Pages deployer automatisk innen 1-2 minutter.
 
 ## 7. Sosiale medier
 ### Instagram
-> LearningKidz er LIVE pa Google Play! 30 laeringsspill for barn 4-8 ar. Bokstaver, tall, former, ord og hukommelse — alt gjennom lek. 6 spill er helt gratis. Ingen reklame, ingen sporing. Lenke i bio!
-> #barnespill #laering #learningkidz #edtech #norskapp #barnleker
+> Lunelo er LIVE pa Google Play! 30 laeringsspill for barn 4-8 ar. Bokstaver, tall, former, ord og hukommelse — alt gjennom lek. 6 spill er helt gratis. Ingen reklame, ingen sporing. Lenke i bio!
+> #barnespill #laering #lunelo #edtech #norskapp #barnleker
 
 ### Facebook
-> Vi har lansert LearningKidz — 30 morsomme laeringsspill for barn 4-8 ar. Helt uten reklame og sporing. 6 spill er gratis, og alle 30 kan lases opp for kun 49 kr. Last ned na: [Play Store-lenke]
+> Vi har lansert Lunelo — 30 morsomme laeringsspill for barn 4-8 ar. Helt uten reklame og sporing. 6 spill er gratis, og alle 30 kan lases opp for kun 49 kr. Last ned na: [Play Store-lenke]
 
 ## 8. E-post til abonnenter
 Send via Formspree eller manuelt til innsamlede e-poster.
@@ -65,7 +65,7 @@ Send via Formspree eller manuelt til innsamlede e-poster.
 - [ ] Forbered v1.3.0 opplasting om stabilt
 
 ## 10. Oppdater Obsidian
-- [ ] Sett LearningKidz status til "LIVE" i INDEX.md
+- [ ] Sett Lunelo status til "LIVE" i INDEX.md
 - [ ] Oppdater dashboard.md med lanseringsdato
 
 ---
