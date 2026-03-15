@@ -16,13 +16,12 @@ fi
 
 echo "Oppdaterer $FILE med Google Play-lenke: $PLAY_URL"
 
-# 1. Change "Kommer snart" badge to "Ute nå!" with green styling
-sed -i 's/<span class="badge highlight">Kommer snart<\/span>/<span class="badge live">Ute n\&aring;!<\/span>/g' "$FILE"
+# 1. Change "Under godkjenning" badge to "Ute nå!" with green styling
+sed -i 's/<span class="badge highlight">Under godkjenning<\/span>/<span class="badge live">Ute n\&aring;!<\/span>/g' "$FILE"
 
 # 2. Replace the grey disabled store button with a real Google Play link
 sed -i 's|<span class="store-button" style="background: linear-gradient(135deg, #666, #555); box-shadow: none; cursor: default;">|<a href="'"$PLAY_URL"'" target="_blank" rel="noopener" class="store-button">|' "$FILE"
-sed -i 's|Kommer snart p\&aring; Google Play|Last ned p\&aring; Google Play|' "$FILE"
-sed -i 's|</span><!-- store-button-end -->|</a>|' "$FILE"
+sed -i 's|Snart p\&aring; Google Play|Last ned p\&aring; Google Play|' "$FILE"
 
 # 3. Fix the closing tag (span -> a) for the store button
 # The original uses </span> after the Google Play text, we need </a>

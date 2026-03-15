@@ -663,112 +663,6 @@
       line-height: 1.6;
     }
 
-    /* ============ SERVICES ============ */
-    .services-section {
-      background: var(--bg-section);
-      padding: 100px 0;
-      position: relative;
-    }
-
-    .services-section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(254,202,87,0.3), transparent);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-
-    .service-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 36px 28px;
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--yellow), var(--red));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .service-card:hover {
-      border-color: rgba(254,202,87,0.3);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-    }
-
-    .service-card:hover::after {
-      opacity: 1;
-    }
-
-    .service-card .icon {
-      font-size: 32px;
-      margin-bottom: 18px;
-      display: block;
-    }
-
-    .service-card h4 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .service-card .price {
-      font-size: 14px;
-      color: var(--yellow);
-      font-weight: 700;
-    }
-
-    .cta-center {
-      text-align: center;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 40px;
-      background: linear-gradient(135deg, var(--red), #e8384f);
-      color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      border-radius: 100px;
-      text-decoration: none;
-      letter-spacing: 0.5px;
-      transition: transform 0.2s, box-shadow 0.3s;
-      box-shadow: 0 4px 24px rgba(255,71,87,0.25);
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px rgba(255,71,87,0.35);
-    }
-
     /* ============ ABOUT ============ */
     .about-section {
       padding: 100px 0;
@@ -871,7 +765,6 @@
       }
       .game-section,
       .features-section,
-      .services-section,
       .learning-section,
       .try-section,
       .about-section {
@@ -933,9 +826,6 @@
       }
       .game-info { text-align: center; }
       .game-badges { justify-content: center; }
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
       .learning-grid {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -948,7 +838,6 @@
       }
       .game-section,
       .features-section,
-      .services-section,
       .learning-section,
       .try-section,
       .about-section {
@@ -975,9 +864,6 @@
         margin-top: 16px;
       }
       .features-grid {
-        grid-template-columns: 1fr;
-      }
-      .services-grid {
         grid-template-columns: 1fr;
       }
       .learning-grid {
@@ -1007,7 +893,6 @@
       }
       .game-section,
       .features-section,
-      .services-section,
       .learning-section,
       .try-section,
       .about-section {
@@ -1027,9 +912,6 @@
         max-width: 220px;
       }
       .game-card {
-        padding: 28px 20px;
-      }
-      .service-card {
         padding: 28px 20px;
       }
       .try-frame-container {
