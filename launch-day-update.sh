@@ -1,5 +1,5 @@
 #!/bin/bash
-# LearningKidz Launch Day — lunelo.no update script
+# Lunelo Launch Day — lunelo.no update script
 # Usage: bash launch-day-update.sh "https://play.google.com/store/apps/details?id=no.lunelo.app"
 #
 # This script updates lunelo.no to switch from "Kommer snart" to "Ute nå!"
@@ -49,5 +49,5 @@ echo "  - Graa knapp -> Aktiv Google Play-lenke"
 echo ""
 echo "Neste steg:"
 echo "  1. Sjekk at det ser riktig ut: open index.html"
-echo "  2. git add index.html && git commit -m 'feat: LearningKidz is LIVE on Google Play'"
+echo "  2. git add index.html && git commit -m 'feat: Lunelo is LIVE on Google Play'"
 echo "  3. git push"

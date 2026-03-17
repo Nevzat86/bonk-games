@@ -60,8 +60,8 @@ Lunelo er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill fo
 presskit/
 ├── README.md              <- Denne filen
 ├── logos/
-│   ├── bonk-games-logo.svg
-│   ├── bonk-games-logo.png (512x512)
+│   ├── lunelo-logo.svg
+│   ├── lunelo-logo.png (512x512)
 │   └── bonk-icon.png (512x512)
 ├── screenshots/
 │   └── (genereres fra appen)
