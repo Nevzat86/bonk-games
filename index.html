@@ -94,7 +94,7 @@
       min-height: 92vh;
       display: flex; align-items: center; justify-content: center;
       text-align: center;
-      padding: 60px 24px 80px;
+      padding: 80px 24px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -191,11 +191,39 @@
     }
     .cta-btn:hover { transform: translateY(-2px) scale(1.03); }
 
+    /* ============ STICKY HEADER ============ */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 12px 24px;
+      background: rgba(255,245,230,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+      transition: transform 0.3s;
+    }
+    .header-brand {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--text);
+    }
+    .header-logo { width: 36px; height: 36px; border-radius: 10px; }
+    .header-name { font-size: 18px; font-weight: 900; }
+    .header-cta {
+      padding: 8px 20px;
+      background: var(--accent); color: #fff;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px; font-weight: 800;
+      border: none; border-radius: 100px;
+      text-decoration: none; cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .header-cta:hover { transform: translateY(-1px); }
+
     /* ============ TRUST BAR ============ */
     .trust-bar {
       display: flex; justify-content: center; align-items: center;
       gap: 0; padding: 20px 0;
-      max-width: 520px; margin: 0 auto;
+      max-width: 600px; margin: 0 auto;
     }
 
     .trust-item {
@@ -293,6 +321,67 @@
     .feat-card h4 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
     .feat-card p { font-size: 14px; color: var(--text-muted); line-height: 1.6; font-weight: 600; }
 
+    /* ============ SCREENSHOTS ============ */
+    .screenshots { padding: 80px 0; }
+    .screenshots-scroll {
+      display: flex; gap: 20px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 0 24px 20px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .screenshots-scroll::-webkit-scrollbar { display: none; }
+    .screenshot-frame {
+      flex: 0 0 auto; scroll-snap-align: center;
+      width: 220px; border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      transition: transform 0.3s;
+    }
+    .screenshot-frame:hover { transform: translateY(-6px) scale(1.02); }
+    .screenshot-frame img { width: 100%; height: auto; display: block; }
+
+    /* ============ FAQ ============ */
+    .faq { padding: 80px 0; }
+    .faq-list { max-width: 640px; margin: 0 auto; }
+    .faq-item {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 24px 28px;
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    .faq-q {
+      font-size: 16px; font-weight: 800;
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    }
+    .faq-q::after { content: '+'; font-size: 22px; color: var(--accent); font-weight: 900; }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      font-size: 15px; color: var(--text-muted); line-height: 1.7; font-weight: 600;
+    }
+    .faq-item.open .faq-q::after { content: '\2212'; }
+    .faq-item.open .faq-a { max-height: 200px; padding-top: 12px; }
+
+    /* ============ EMAIL FORM ============ */
+    .email-form-wrapper {
+      display: flex; gap: 8px; justify-content: center;
+      flex-wrap: wrap; max-width: 480px; margin: 0 auto;
+    }
+    .email-input {
+      flex: 1; min-width: 200px;
+      padding: 14px 20px;
+      border: 2px solid rgba(0,0,0,0.08);
+      border-radius: 100px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px; font-weight: 600;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .email-input:focus { border-color: var(--accent); }
+    .email-input::placeholder { color: var(--text-light); }
+
     /* ============ ABOUT ============ */
     .about { padding: 80px 0; text-align: center; }
 
@@ -376,8 +465,8 @@
     }
 
     @media (max-width: 640px) {
-      .hero { min-height: 80vh; padding: 40px 20px 60px; }
-      .worlds, .features, .about { padding: 60px 0; }
+      .hero { min-height: 80vh; padding: 80px 20px 60px; }
+      .worlds, .features, .about, .faq, .screenshots { padding: 60px 0; }
 
       /* Reduce floating elements on mobile */
       .f4, .f6, .f8, .f10 { display: none; }
@@ -391,11 +480,25 @@
       /* Hide tooltips on mobile (no hover) */
       .trust-item::after { display: none; }
 
+      .screenshot-frame { width: 180px; }
+
       .night-footer { padding: 80px 24px 32px; }
+
+      .site-header { padding: 10px 16px; }
+      .header-name { font-size: 15px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ======== STICKY HEADER ======== -->
+  <header class="site-header">
+    <a href="/" class="header-brand">
+      <img src="branding/png-exports/lunelo-icon-512x512.png" alt="Lunelo" class="header-logo">
+      <span class="header-name">Lunelo</span>
+    </a>
+    <a href="#signup" class="header-cta">Last ned snart</a>
+  </header>
 
   <!-- ======== HERO ======== -->
   <section class="hero">
@@ -425,9 +528,11 @@
         <span class="pill">7 spr&aring;k</span>
         <span class="pill">Android</span>
       </div>
-      <a href="mailto:contact@lunelo.no?subject=Venteliste%20%E2%80%93%20Lunelo%20lansering&body=Hei!%20Jeg%20vil%20gjerne%20vite%20n%C3%A5r%20Lunelo%20lanserer%20%F0%9F%8E%89" class="cta-btn">
-        &#x2709;&#xFE0F; F&aring; lanserings&shy;tilbud &mdash; 49 kr (spar 100,-)
-      </a>
+      <form id="signup" class="email-form-wrapper" action="https://formspree.io/contact@lunelo.no" method="POST">
+        <input type="email" name="email" class="email-input" placeholder="Din e-postadresse" required>
+        <button type="submit" class="cta-btn">F&aring; lanseringstilbud &mdash; 49 kr</button>
+      </form>
+      <p style="font-size:13px;color:var(--text-light);margin-top:10px;font-weight:600;">Ingen spam. Kun &eacute;n e-post n&aring;r appen lanserer. Normalpris 149 kr.</p>
     </div>
   </section>
 
@@ -451,6 +556,11 @@
     <div class="trust-item" data-tooltip="Ingen sporing. Barnets data er trygg.">
       <div class="trust-num" data-count="0">0</div>
       <div class="trust-label">Sporing</div>
+    </div>
+    <div class="trust-div"></div>
+    <div class="trust-item" data-tooltip="Utviklet av Adea IT AS i Oslo, Norge">
+      <div class="trust-num" style="font-size:clamp(20px,3vw,28px);">&#x1F1F3;&#x1F1F4;</div>
+      <div class="trust-label">Norskutviklet</div>
     </div>
   </div>
 
@@ -594,6 +704,21 @@
     </div>
   </section>
 
+  <!-- ======== APP SCREENSHOTS ======== -->
+  <section class="screenshots">
+    <div class="container">
+      <p class="section-label fade-in">Se appen i aksjon</p>
+      <h2 class="section-title fade-in">Slik ser det ut inni Lunelo</h2>
+    </div>
+    <div class="screenshots-scroll fade-in">
+      <div class="screenshot-frame"><img src="screenshots/store-01-welcome.png" alt="Lunelo velkomstskjerm" loading="lazy"></div>
+      <div class="screenshot-frame"><img src="screenshots/store-02-worldmap.png" alt="Verdenskart med 5 verdener" loading="lazy"></div>
+      <div class="screenshot-frame"><img src="screenshots/store-06-gameplay-letters.png" alt="Bokstavspill i Bokstavland" loading="lazy"></div>
+      <div class="screenshot-frame"><img src="screenshots/store-07-gameplay-math.png" alt="Mattespill i Tallriket" loading="lazy"></div>
+      <div class="screenshot-frame"><img src="screenshots/store-11-memory.png" alt="Hukommelsesspill" loading="lazy"></div>
+    </div>
+  </section>
+
   <!-- ======== FEATURES ======== -->
   <section class="features">
     <div class="container">
@@ -644,6 +769,36 @@
       <a href="mailto:contact@lunelo.no" class="contact-link fade-in">
         &#x2709;&#xFE0F; contact@lunelo.no
       </a>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section class="faq">
+    <div class="container">
+      <p class="section-label fade-in">Vanlige sp&oslash;rsm&aring;l</p>
+      <h2 class="section-title fade-in">Foreldre sp&oslash;r ofte</h2>
+      <div class="faq-list">
+        <div class="faq-item fade-in">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Er det skjulte kj&oslash;p eller abonnementsfeller?</div>
+          <div class="faq-a">Nei. Lunelo har &eacute;n engangssum p&aring; 49 kr som l&aring;ser opp alle 30 spill for alltid. Ingen abonnement, ingen overraskelser. 6 spill er helt gratis.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Trenger barna internett for &aring; spille?</div>
+          <div class="faq-a">Nei! Lunelo fungerer 100&percnt; offline. Perfekt p&aring; bilturer, flyreiser og p&aring; hytta uten wifi.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Er appen trygg for barn?</div>
+          <div class="faq-a">Ja. Lunelo har null reklame, null sporing og ingen sosiale funksjoner. Vi samler ikke inn persondata. Appen f&oslash;lger COPPA og GDPR-K for barns personvern.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Hvilke spr&aring;k st&oslash;ttes?</div>
+          <div class="faq-a">Norsk, engelsk, tysk, svensk, dansk, spansk og albansk &mdash; med innebygd tale p&aring; alle spr&aring;k.</div>
+        </div>
+        <div class="faq-item fade-in">
+          <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Hvem har laget Lunelo?</div>
+          <div class="faq-a">Lunelo er utviklet av Adea IT AS i Oslo, Norge. Et lite studio som lager trygge l&aelig;ringsspill for barn &mdash; uten reklame og uten sporing.</div>
+        </div>
+      </div>
     </div>
   </section>
 
