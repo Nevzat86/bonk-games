@@ -9,7 +9,7 @@ Nar Google Play godkjenner appen, kjor disse stegene:
 
 ## 2. Oppdater nettsiden
 ```bash
-cd C:\Users\Tex\Projects\12-bonk-games
+cd C:\Users\Tex\Projects\12-lunelo-website
 bash launch-day-update.sh "https://play.google.com/store/apps/details?id=no.lunelo.app"
 ```
 
@@ -43,17 +43,17 @@ GitHub Pages deployer automatisk innen 1-2 minutter.
 
 ## 6. Verifiser kjop
 - [ ] Installer appen fra Play Store pa ekte enhet
-- [ ] Gjennomfor kjop (49 kr livstid)
+- [ ] Gjennomfor kjop (59 kr livstid)
 - [ ] Verifiser at premium laser opp
 - [ ] Sjekk RevenueCat dashboard for transaksjonen
 
 ## 7. Sosiale medier
 ### Instagram
-> Lunelo er LIVE pa Google Play! 30 laeringsspill for barn 4-8 ar. Bokstaver, tall, former, ord og hukommelse — alt gjennom lek. 6 spill er helt gratis. Ingen reklame, ingen sporing. Lenke i bio!
+> Lunelo er LIVE pa Google Play! 42 laeringsspill for barn 4-8 ar. Bokstaver, tall, former, ord og hukommelse — alt gjennom lek. 6 spill er helt gratis. Ingen reklame, ingen sporing. Lenke i bio!
 > #barnespill #laering #lunelo #edtech #norskapp #barnleker
 
 ### Facebook
-> Vi har lansert Lunelo — 30 morsomme laeringsspill for barn 4-8 ar. Helt uten reklame og sporing. 6 spill er gratis, og alle 30 kan lases opp for kun 49 kr. Last ned na: [Play Store-lenke]
+> Vi har lansert Lunelo — 42 morsomme laeringsspill for barn 4-8 ar. Helt uten reklame og sporing. 6 spill er gratis, og alle 42 kan lases opp for kun 59 kr. Last ned na: [Play Store-lenke]
 
 ## 8. E-post til abonnenter
 Send via Formspree eller manuelt til innsamlede e-poster.
@@ -76,7 +76,7 @@ Send via Formspree eller manuelt til innsamlede e-poster.
 |----------|-----------|
 | Google Play Console | play.google.com/console |
 | RevenueCat | app.revenuecat.com |
-| GitHub Pages | github.com/nevzat86/bonk-games/settings/pages |
+| GitHub Pages | github.com/nevzat86/lunelo-website/settings/pages |
 | Domeneshop | domeneshop.no (lunelo.no, lunelo.online, lunelo.eu) |
 
 *Sist oppdatert: 2026-03-15*

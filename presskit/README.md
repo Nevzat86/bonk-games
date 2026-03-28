@@ -26,7 +26,7 @@ Lunelo er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill fo
 | **Plattform** | Android (iOS kommer) |
 | **Sjanger** | Pedagogisk / Barnespill |
 | **Aldersgruppe** | 4-8 ar |
-| **Pris** | Gratis (6 spill) + Premium (alle 42, 49 kr livstid) |
+| **Pris** | Gratis (6 spill) + Premium (alle 42, 59 kr livstid) |
 | **Sprak** | Norsk, Engelsk, Tysk, Svensk, Dansk, Spansk, Albansk |
 | **Status** | I Google Play review |
 
@@ -48,7 +48,7 @@ Lunelo er et indie-spillstudio fra Oslo som lager morsomme, trygge mobilspill fo
 2. **Tallriket** — Tell dyr, Tallrekke, Addisjon, Storre/Mindre
 3. **Formlandet** — Fargesortering, Formjakt, Monster, Puslespill
 4. **Ordslottet** — Stavbygging, Hoyfrekvente ord, Bilde-ord, Setningsbygging
-5. **Hukommelsesoya** — Memory, Finn forskjellen, Hva mangler, Kategorisering, Sekvens
+5. **Minneoya** — Memory, Finn forskjellen, Hva mangler, Kategorisering, Sekvens
 
 ---
 
@@ -62,7 +62,7 @@ presskit/
 ├── logos/
 │   ├── lunelo-logo.svg
 │   ├── lunelo-logo.png (512x512)
-│   └── bonk-icon.png (512x512)
+│   └── lunelo-icon.png (512x512)
 ├── screenshots/
 │   └── (genereres fra appen)
 ├── feature-graphics/

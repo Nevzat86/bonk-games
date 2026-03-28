@@ -10,7 +10,7 @@ PLAY_URL="${1:?Bruk: bash launch-day-update.sh '<Google Play URL>'}"
 FILE="index.html"
 
 if [ ! -f "$FILE" ]; then
-  echo "Feil: $FILE ikke funnet. Kjor scriptet fra 12-bonk-games mappen."
+  echo "Feil: $FILE ikke funnet. Kjor scriptet fra 12-lunelo-website mappen."
   exit 1
 fi
 
