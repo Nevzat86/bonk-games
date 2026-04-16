@@ -9,17 +9,12 @@
 
 ## Accounts
 - [x] Gmail: contact@lunelo.no
-- [x] Google Business Profile (Adea IT AS)
 - [x] Instagram: @lunelo.no
-- [x] Domain: lunelo.no (Domeneshop)
-- [x] D-U-N-S: 346854801 (verifisert)
-- [x] Google Play Console: verifisert, developer ID 7081837294316555512
 - [ ] TikTok: @lunelo.no
 
 ## Current Status
 - **Lunelo v1.1.0** sendt til Google Play produksjonsgjennomgang (2026-03-14)
 - 176 land, 3 IAP-produkter aktive (monthly, yearly, lifetime)
-- Venter Google-godkjenning — kjor `launch-day-update.sh` nar URL er klar
 - **Lunelo rebrand** gjennomfort (domener sikret: lunelo.no, lunelo.online, lunelo.eu)
 
 ## Launch Day
